@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
-# Create your views here.
-def home_authentication(request):
-    return HttpResponse("hello world")
+
+@api_view(['GET', 'POST'])
+def user_signup(request):
+    if request.method == 'GET':
+        return Response(data={'result':'ok'})
