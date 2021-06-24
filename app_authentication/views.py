@@ -13,6 +13,8 @@ def user_signup(request):
         if serializer.is_valid():
             serializer.save()
             return Response(data={'result':'user saved successfully'})
+        
+        return Response(data={'result':'user already exists'})
 
 @api_view(['POST'])
 def user_login(request):
