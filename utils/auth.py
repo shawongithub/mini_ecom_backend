@@ -32,3 +32,4 @@ def authenticate_appuser():
         token_provider = TokenProvider()
         sts, user_pk = token_provider.get_token_value(jwt_token)
         return sts, user_pk
+        
