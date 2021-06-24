@@ -13,7 +13,6 @@ class TokenProvider:
                 "exp":datetime.utcnow()+timedelta(seconds=self.jwt_time_validity_in_seconds)
             }
             jwt_token = jwt.encode(payload,self.secret_key)
-            print(jwt_token)
             return 1, jwt_token
 
         except:
