@@ -1,0 +1,1 @@
+web: gunicorn mini_ecom_project.wsgi
