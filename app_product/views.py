@@ -28,5 +28,5 @@ def add_to_cart(request):
             cart, created = Cart.objects.get_or_create(user=user,item=item)
             cart.quantity +=1
             cart.save()
-        return Response("ok")
-    return Response("no user found")
+        return Response("ok",status=status.HTTP_201_CREATED)
+    return Response("no user found",status=status.HTTP_400_BAD_REQUEST)
