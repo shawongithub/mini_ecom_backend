@@ -119,9 +119,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-# STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
