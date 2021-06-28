@@ -27,8 +27,8 @@ class TokenProvider:
             return False, None
 
 def authenticate_appuser(request):
-    if 'X-Jwt-Token' in request.headers.keys():
-        jwt_token = request.headers.get('X-Jwt-Token').replace('Bearer ','')
+    if 'Authorization' in request.headers.keys():
+        jwt_token = request.headers.get('Authorization').replace('Bearer ','')
         token_provider = TokenProvider()
         sts, user_pk = token_provider.get_token_value(jwt_token)
         return sts, user_pk
