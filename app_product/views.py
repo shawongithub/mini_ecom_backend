@@ -22,11 +22,14 @@ def add_to_cart(request):
     if sts:
         data = request.data
         products = data.get('products')
-        user = User.objects.get(pk=user_pk)
-        for product in products:
-            item = Product.objects.get(pk=product.get('id'))
-            cart, created = Cart.objects.get_or_create(user=user,item=item)
-            cart.quantity +=1
-            cart.save()
-        return Response("ok",status=status.HTTP_201_CREATED)
-    return Response("no user found",status=status.HTTP_400_BAD_REQUEST)
+        try:
+            user = User.objects.get(pk=user_pk)
+            for product in products:
+                item = Product.objects.get(pk=product.get('id'))
+                cart, created = Cart.objects.get_or_create(user=user,item=item)
+                cart.quantity +=1
+                cart.save()
+            return Response("ok",status=status.HTTP_201_CREATED)
+        except:
+            return Response(data="invalid request",status=status.HTTP_400_BAD_REQUEST)
+    return Response(data="invalid user",status=status.HTTP_400_BAD_REQUEST)
